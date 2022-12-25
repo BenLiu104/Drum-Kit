@@ -1,8 +1,8 @@
 let drumSet = document.querySelectorAll('.drum');
 
-const handleClick = (e) => {
+const playSound = (key) => {
   let audio;
-  switch (e.target.innerText) {
+  switch (key) {
     case 'w':
       audio = new Audio('./sounds/tom-1.mp3');
       audio.play();
@@ -46,45 +46,12 @@ const handleClick = (e) => {
   }
 };
 
-const handlePress = (e) => {
-  if (e.key == 'w') {
-    let audio = new Audio('./sounds/tom-1.mp3');
-    audio.play();
-  }
-  if (e.key == 'a') {
-    let audio = new Audio('./sounds/tom-2.mp3');
-    audio.play();
-  }
-  if (e.key == 's') {
-    let audio = new Audio('./sounds/tom-3.mp3');
-    audio.play();
-  }
-  if (e.key == 'd') {
-    let audio = new Audio('./sounds/tom-4.mp3');
-    audio.play();
-  }
-  if (e.key == 'i') {
-    let audio = new Audio(
-      './sounds/00s-treble-heavy-high-hat-sample-a-key-01-JqH.mp3'
-    );
-    audio.play();
-  }
-  if (e.key == 'j') {
-    let audio = new Audio('./sounds/crash.mp3');
-    audio.play();
-  }
-  if (e.key == 'k') {
-    let audio = new Audio('./sounds/kick-bass.mp3');
-    audio.play();
-  }
-  if (e.key == 'l') {
-    let audio = new Audio('./sounds/snare.mp3');
-    audio.play();
-  }
-};
-
-document.addEventListener('keydown', handlePress);
+document.addEventListener('keydown', (e) => {
+  playSound(e.key);
+});
 
 for (let i = 0; i < drumSet.length; i++) {
-  drumSet[i].addEventListener('click', handleClick);
+  drumSet[i].addEventListener('click', (e) => {
+    playSound(e.target.innerText);
+  });
 }

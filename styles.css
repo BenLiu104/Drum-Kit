@@ -6,21 +6,18 @@
 }
 body {
   text-align: center;
-  /* background-color: #283149; */
   background-color: var(--background);
 }
 
 h1 {
   font-size: 5rem;
-  /* color: #dbedf3; */
   color: var(--headingColor);
   font-family: 'Arvo', cursive;
-  /* text-shadow: 3px 0 5px #da0463; */
   text-shadow: 3px 0 5px var(--headShadow);
 }
 
 footer {
-  color: #dbedf3;
+  color: black;
   font-family: sans-serif;
 }
 

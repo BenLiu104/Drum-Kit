@@ -46,12 +46,22 @@ const playSound = (key) => {
   }
 };
 
+function animation(key) {
+  const el = document.querySelector(`.${key}`);
+  el?.classList.add('pressed');
+  setTimeout(() => {
+    el?.classList.remove('pressed');
+  }, 100);
+}
+
 document.addEventListener('keydown', (e) => {
   playSound(e.key);
+  animation(e.key);
 });
 
 for (let i = 0; i < drumSet.length; i++) {
   drumSet[i].addEventListener('click', (e) => {
-    playSound(e.target.innerText);
+    playSound(e.target?.innerText);
+    animation(e.target?.innerText);
   });
 }
